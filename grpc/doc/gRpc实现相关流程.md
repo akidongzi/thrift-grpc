@@ -25,7 +25,7 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 
 ![img_1.png](img_1.png)
 
-其次还需要下载proto相关的exe文件
+其次还需要下载proto相关的exe文件(直接搜索对应的文件名下载进行解压)
 
 ![img_2.png](img_2.png)
 
@@ -47,6 +47,10 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 其次gRpc和thrift相比于feign这种协议来说，性能更高，因为feign是基于http协议来做的过程
 调用，而http是一个应用层协议，消息通过网络传递时需要进行频繁的装包和拆包(gRpc和thrift避免
 了这个过程)。
+
+过程调用一定是基于不可靠的网络来进行的，因此过程调用的成功与否很大一部分都要依靠于网络，而不
+管是什么协议，在实现过程调用的协议时都做的像本地调用方法一样(本质是网络通信的过程，网络环境
+不可靠)，这种错觉一定要注意。
 
 **4.相关mod**
 
