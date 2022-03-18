@@ -7,7 +7,9 @@ import (
 	"github.com/apache/thrift/lib/go/thrift"
 )
 
-type HelloThriftServer struct{}
+type HelloThriftServer struct {
+	hello_thrift.HelloThrift
+}
 
 func (s *HelloThriftServer) SayHi(ctx context.Context, req *hello_thrift.Req) (res *hello_thrift.Res, err error) {
 	fmt.Println("我是来自客户端的消息：", req.GetMsg())
