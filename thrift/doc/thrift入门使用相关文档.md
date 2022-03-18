@@ -5,15 +5,18 @@ thrift和gRpc一样，都是基于二进制的协议，相比于基于http的fei
 生成服务相关的代码，再有客户端和服务端进行实现。(注:thrift是有FaceBook开源，而gRpc
 是由google开源)
 
-2.使用
+**2.使用**
 
 ![img.png](img.png)
+
 下载上图相关插件，其次执行
 
 go get -u github.com/apache/thrift
 
 下载相关的mod，其次下载
+
 ![img_1.png](img_1.png)
+
 链接:https://dlcdn.apache.org/thrift/0.16.0/thrift-0.16.0.exe
 
 将下载下来的exe文件放进GOPATH的bin目录之下，之后打开cmd命令行执行
