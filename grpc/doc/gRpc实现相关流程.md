@@ -13,11 +13,16 @@ gRpc是基于Protobuf(二进制序列缓冲协议来定义接口与服务)
 **2.使用**
 
 安装晚上述插件之后重新启动IDE，创建一个mod项目，在终端执行以下命令:
+```golang
+
 go get -u google.golang.org/grpc
 
 go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
 
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
+
+```
+
 
 若这两条命令执行不成功建议切换mod代理:GOPROXY=https://goproxy.cn,direct,
 或者也可进行科学上网，执行完后会在GOPATH路径下出现两个EXE文件(如果下载不成功可直接下载对应的

@@ -10,8 +10,10 @@ thrift和gRpc一样，都是基于二进制的协议，相比于基于http的fei
 ![img.png](img.png)
 
 下载上图相关插件，其次执行
-
+```golang
 go get -u github.com/apache/thrift
+
+```
 
 下载相关的mod，其次下载
 
