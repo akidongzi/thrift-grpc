@@ -13,16 +13,16 @@ import (
 	"strconv"
 	"strings"
 	thrift "github.com/apache/thrift/lib/go/thrift"
-	"hello_thrift"
+	"self_thrift"
 )
 
-var _ = hello_thrift.GoUnusedProtection__
+var _ = self_thrift.GoUnusedProtection__
 
 func Usage() {
   fmt.Fprintln(os.Stderr, "Usage of ", os.Args[0], " [-h host:port] [-u url] [-f[ramed]] function [arg1 [arg2...]]:")
   flag.PrintDefaults()
   fmt.Fprintln(os.Stderr, "\nFunctions:")
-  fmt.Fprintln(os.Stderr, "  Res SayHi(Req req)")
+  fmt.Fprintln(os.Stderr, "  Res SelfSayHi(Req req)")
   fmt.Fprintln(os.Stderr)
   os.Exit(0)
 }
@@ -138,16 +138,16 @@ func main() {
   }
   iprot := protocolFactory.GetProtocol(trans)
   oprot := protocolFactory.GetProtocol(trans)
-  client := hello_thrift.NewHelloThriftClient(thrift.NewTStandardClient(iprot, oprot))
+  client := self_thrift.NewSelfHelloThriftClient(thrift.NewTStandardClient(iprot, oprot))
   if err := trans.Open(); err != nil {
     fmt.Fprintln(os.Stderr, "Error opening socket to ", host, ":", port, " ", err)
     os.Exit(1)
   }
   
   switch cmd {
-  case "SayHi":
+  case "SelfSayHi":
     if flag.NArg() - 1 != 1 {
-      fmt.Fprintln(os.Stderr, "SayHi requires 1 args")
+      fmt.Fprintln(os.Stderr, "SelfSayHi requires 1 args")
       flag.Usage()
     }
     arg8 := flag.Arg(1)
@@ -160,14 +160,14 @@ func main() {
     }
     factory11 := thrift.NewTJSONProtocolFactory()
     jsProt12 := factory11.GetProtocol(mbTrans9)
-    argvalue0 := hello_thrift.NewReq()
+    argvalue0 := self_thrift.NewReq()
     err13 := argvalue0.Read(context.Background(), jsProt12)
     if err13 != nil {
       Usage()
       return
     }
     value0 := argvalue0
-    fmt.Print(client.SayHi(context.Background(), value0))
+    fmt.Print(client.SelfSayHi(context.Background(), value0))
     fmt.Print("\n")
     break
   case "":

@@ -11,3 +11,4 @@ struct Res {
 service HelloThrift {
     Res SayHi(1: Req req);
 }
+
